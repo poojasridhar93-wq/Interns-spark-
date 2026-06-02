@@ -1,0 +1,4 @@
+INSERT INTO students(name,email)
+VALUES
+('Pooja','pooja@gmail.com'),
+('Rahul','rahul@gmail.com');
