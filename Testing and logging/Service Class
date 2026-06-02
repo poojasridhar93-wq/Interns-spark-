@@ -1,0 +1,30 @@
+package com.example.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class UserService {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(UserService.class);
+
+    private UserRepository repository;
+
+    public UserService(UserRepository repository) {
+        this.repository = repository;
+    }
+
+    public String getUserName(int id) {
+        logger.info("Fetching user with ID: {}", id);
+
+        String user = repository.findUserById(id);
+
+        if (user == null) {
+            logger.warn("User not found for ID: {}", id);
+            return "User Not Found";
+        }
+
+        logger.info("User found: {}", user);
+        return user;
+    }
+}
